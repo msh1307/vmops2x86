@@ -1,5 +1,4 @@
 from capstone import *
-from keystone import *
 from tqdm import tqdm
 import itertools
 import struct
