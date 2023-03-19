@@ -3,7 +3,8 @@ from keystone import *
 from tqdm import tqdm
 import itertools
 import struct
-vm_opcodes_args = [[0x81,1],[0x91,2],[0x9F,0],[0xA1,2],[0xAA,1],[0x3,1],[0x6,1],[0xD,2],[0x24,2],[0xd8,2],[0x73,2]]
+#vm_opcodes_args = [[0x81,1],[0x91,2],[0x9F,0],[0xA1,2],[0xAA,1],[0x3,1],[0x6,1],[0xD,2],[0x24,2],[0xd8,2],[0x73,2]]
+vm_opcodes_args = [[0x24,2]]
 cs = Cs(CS_ARCH_X86, CS_MODE_64)
 OPS = []
 for oa in vm_opcodes_args:
@@ -19,15 +20,20 @@ for oa in vm_opcodes_args:
                     flag = 0
             if flag:
                 OPS.append([k.mnemonic,oa[1],oa[0]])
-if __name__ == "__main__":
+def print_candi(OPS):
     print("--- Candidates ---")
     for i in OPS:
         print(i[0])
+if __name__ == "__main__":
+    print_candi(OPS)
     while True:
         print("\nopcode > ",end='')
         opcode = input()
         if opcode == 'exit':
             exit()
+        elif opcode == 'candidates':
+            print_candi(OPS)
+            continue
         flag = 0
         for i,j in enumerate(OPS):
             if j[0] == opcode:
