@@ -4,7 +4,9 @@ https://velog.io/@msh1307/Wacon-VM
 
 
 ```
-root@ed1ff428eb33 ~/Desktop/CTF/wacon_VM ❯ python3 vmops2x86.py
+root@ed1ff428eb33 ~/Desktop/CTF/wacon_VM 
+❯ python3 vmops2x86.py
+
 256it [00:00, 124506.24it/s]
 261632it [00:31, 8273.33it/s]
 1it [00:00, 7319.90it/s]
